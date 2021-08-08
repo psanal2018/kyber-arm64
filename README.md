@@ -6,9 +6,9 @@ The paper of this implementation ("Kyber on ARM64: Compact Implementations of Ky
 
 ## Benchmarking Results
 
-Benchmark results were measured both ARM and Apple chips. The ARM board is on Google Pixel 3 Android smartphone. The processor (Snapdragon 845) on it has 8 cores including 4 of ARM Cortex-A53 (@1.77~GHz) and 4 of ARM Cortex-A75 (@2.8~GHz) based. Performance results are taken by using Cortex-A75 processor. The executable is aarch64 cross-compiled on Linux operating system (Ubuntu 20.04) with gcc-9. The Apple board is on iPad mini 5-th generation. The processor (A12 Bionic) on it has 6 cores including 2 of Vortex (@2.49~GHz) and 4 of Tempest (@1.54~GHz) based. Performance results are taken by using Vortex processor on Apple operating system (iPadOS 14.3). The reference C code is originally obtained from [Kyber GitHub Repository](https://github.com/pq-crystals/kyber).
+Benchmark results were measured both ARM and Apple chips. The ARM board is on Google Pixel 3 Android smartphone. The processor (Snapdragon 845) on it has 8 cores including 4 of ARM Cortex-A53 (@1.77 GHz) and 4 of ARM Cortex-A75 (@2.8 GHz) based. Performance results are taken by using Cortex-A75 processor. The executable is aarch64 cross-compiled on Linux operating system (Ubuntu 20.04) with gcc-9. The Apple board is on iPad mini 5-th generation. The processor (A12 Bionic) on it has 6 cores including 2 of Vortex (@2.49 GHz) and 4 of Tempest (@1.54 GHz) based. Performance results are taken by using Vortex processor on Apple operating system (iPadOS 14.3). The reference C code is originally obtained from [Kyber GitHub Repository](https://github.com/pq-crystals/kyber).
 
-Comparison of clock cycles for functions of Kyber schemes on 64-bit ARM Cortex-A75@2.8~GHz. (Ref-C: Reference C implementation. Opt: Our optimized implementation.)
+Comparison of clock cycles for functions of Kyber schemes on 64-bit ARM Cortex-A75@2.8 GHz. (Ref-C: Reference C implementation. Opt: Our optimized implementation.)
 
 | Functions                    | Ref Timing [cc] | Opt Timing [cc] | Ref/Opt |
 |:-----------------------------|:---------------:|:---------------:|:-------:|
@@ -21,7 +21,7 @@ Comparison of clock cycles for functions of Kyber schemes on 64-bit ARM Cortex-A
 | poly\_basemul_montgomery      | 5,396           | 1,168           | 4.62    |
 
 Comparison of clock cycles for Kyber schemes. (Ref-C: Reference C implementation. Opt: Our optimized implementation.)
-|               | | | ARM Cortex-A75 @2.8~GHz | | | Apple A12 @2.49~GHz | |
+|               | | | ARM Cortex-A75 @2.8 GHz | | | Apple A12 @2.49 GHz | |
 |:--------------|:-------:|:-----:|:-----:|:----:|:-----:|:----:|:-----:|
 |               |         | **Ref-C [kc]** | **Opt [kc]** | **Ref-C / Opt** | **Ref-C [kc]** | **Opt [kc]** | **Ref-C / Opt** |
 | Kyber512      |  K      | 145.8 | 81.7  | 1.79 | 60.4  | 34.9 | 1.78  |
