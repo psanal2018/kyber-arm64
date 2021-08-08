@@ -90,6 +90,46 @@ libpqcrystals_fips202_armv8.so
 ```
 All global symbols in the libraries lie in the namespaces `pqcrystals_kyber$ALG_armv8`, `libpqcrystals_aes256ctr_armv8` and `libpqcrystals_fips202_armv8`. Hence it is possible to link a program against all libraries simultaneously and obtain access to all implementations for all parameter sets. The corresponding API header file is `armv8/api.h`, which contains prototypes for all API functions and preprocessor defines for the key and signature lengths.
 
+## Benchmarking Results
+
+| Functions                    | Ref Timing [cc] | Opt Timing [cc] | Ref/Opt |
+|:-----------------------------|:---------------:|:---------------:|:-------:|
+| **Reduction**                |                 |                 |         |
+| poly_tomont (Montgomery Red) | 1,896           | 437             | 4.34    |
+| poly_reduce (Barrett Red)    | 2,187           | 294             | 7.44    |
+| **NTT**                      |                 |                 |         |
+| poly_ntt (NTT+Barrett Red)   | 11,228          | 1,750           | 6.42    |
+| poly_invntt_tomont (InvNTT)  | 17,500          | 2,624           | 6.67    |
+| poly_basemul_montgomery      | 5,396           | 1,168           | 4.62    |
+
+
+|               | | | ARM Cortex-A75 @2.8~GHz | | | Apple A12 @2.49~GHz | |
+|:--------------|:-------:|:-----:|:-----:|:----:|:-----:|:----:|:-----:|
+|               |         | Ref-C | Opt | Ref-C / Opt | Ref-C | Opt | Ref-C / Opt |
+| Kyber512      |  K      | 145.8 | 81.7  | 1.79 | 60.4  | 34.9 | 1.78  |
+| Kyber512      |  E      | 205.2 | 104.9 | 1.96 | 77.7  | 37.7 | 2.06  |
+| Kyber512      |  D      | 248.5 | 101.9 | 2.44 | 94.6  | 37.2 | 2.53  |
+|               |         |       |       |      |       |      |       |
+| Kyber768      |  K      | 247.5 | 138   | 1.79 | 106   | 62.2 | 1.7   |
+| Kyber768      |  E      | 327.8 | 173.4 | 1.89 | 131.9 | 60.8 | 2.16  |
+| Kyber768      |  D      | 383   | 168.6 | 2.27 | 146.7 | 60   | 2.44  |
+|               |         |       |       |      |       |      |       |
+| Kyber1024     |  K      | 385.1 | 222.7 | 1.73 | 171.2 | 95.2 | 1.79  |
+| Kyber1024     |  E      | 476.7 | 262.8 | 1.81 | 182.2 | 93   | 1.95  |
+| Kyber1024     |  D      | 546   | 257.7 | 2.12 | 209.1 | 91   | 2.29  |
+|               |         |       |       |      |       |      |       |
+| Kyber512-90s  |  K      | 270.5 | 205.6 | 1.32 | 279.7 | 32.6 | 8.57  |
+| Kyber512-90s  |  E      | 334.5 | 236.7 | 1.41 | 292.7 | 42.1 | 6.94  |
+| Kyber512-90s  |  D      | 375.1 | 230.7 | 1.63 | 305.5 | 37   | 8.26  |
+|               |         |       |       |      |       |      |       |
+| Kyber768-90s  |  K      | 491.7 | 379.2 | 1.3  | 554.2 | 56.4 | 9.82  |
+| Kyber768-90s  |  E      | 581.4 | 426.1 | 1.36 | 576   | 64.5 | 8.92  |
+| Kyber768-90s  |  D      | 632.9 | 417.1 | 1.52 | 590.7 | 57   | 10.35 |
+|               |         |       |       |      |       |      |       |
+| Kyber1024-90s |  K      | 790.3 | 625.8 | 1.26 | 941.9 | 87.1 | 10.8  |
+| Kyber1024-90s |  E      | 897.3 | 680.5 | 1.32 | 964.8 | 93.8 | 10.28 |
+| Kyber1024-90s |  D      | 959.6 | 669.4 | 1.43 | 983   | 83.5 | 11.76 |
+
 ## Contributors
 * Pakize Sanal, Florida Atlantic University, Boca Raton, USA: (psanal2018@fau.edu)
 * Emrah Karagoz, Florida Atlantic University, Boca Raton, USA: (ekaragoz2017@fau.edu)
