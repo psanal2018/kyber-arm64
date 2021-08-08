@@ -105,7 +105,7 @@ All global symbols in the libraries lie in the namespaces `pqcrystals_kyber$ALG_
 
 |               | | | ARM Cortex-A75 @2.8~GHz | | | Apple A12 @2.49~GHz | |
 |:--------------|:-------:|:-----:|:-----:|:----:|:-----:|:----:|:-----:|
-|               |         | Ref-C | Opt | Ref-C / Opt | Ref-C | Opt | Ref-C / Opt |
+|               |         | **Ref-C** | **Opt** | **Ref-C / Opt** | **Ref-C** | **Opt** | **Ref-C / Opt** |
 | Kyber512      |  K      | 145.8 | 81.7  | 1.79 | 60.4  | 34.9 | 1.78  |
 | Kyber512      |  E      | 205.2 | 104.9 | 1.96 | 77.7  | 37.7 | 2.06  |
 | Kyber512      |  D      | 248.5 | 101.9 | 2.44 | 94.6  | 37.2 | 2.53  |
