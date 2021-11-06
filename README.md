@@ -2,7 +2,7 @@
 
 This repository contains the ARMv8 implementation of [Kyber](https://www.pq-crystals.org/kyber/). Kyber is a key encapsulation mechanism (KEM) and it is a finalist in [round 3](https://csrc.nist.gov/Projects/post-quantum-cryptography/round-3-submissions) of the [NIST PQC](https://csrc.nist.gov/projects/post-quantum-cryptography) standardization project.
 
-The paper of this implementation ("Kyber on ARM64: Compact Implementations of Kyber on 64-bit ARM Cortex-A Processors") will be published in [`International Workshop on Post-quantum Cryptography for Secure Communications (PQC-SC) workshop 2021`](https://securecomm.eai-conferences.org/2021/pqc-sc/).
+The paper of this implementation ("Kyber on ARM64: Compact Implementations of Kyber on 64-bit ARM Cortex-A Processors") ~~will be~~ is published in [`International Workshop on Post-quantum Cryptography for Secure Communications (PQC-SC) 2021`](https://securecomm.eai-conferences.org/2021/pqc-sc/) and can be accessed via this [link](https://link.springer.com/chapter/10.1007/978-3-030-90022-9_23).
 
 ## Benchmarking Results
 
