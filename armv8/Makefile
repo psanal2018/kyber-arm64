@@ -1,5 +1,5 @@
 #CC ?= /usr/bin/cc
-CC = aarch64-linux-gnu-gcc
+CC ?= aarch64-linux-gnu-gcc
 CFLAGS += -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wredundant-decls \
   -Wshadow -Wpointer-arith -O3 -fomit-frame-pointer -fwrapv
 NISTFLAGS += -Wno-unused-result -O3 -fwrapv
