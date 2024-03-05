@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include "params.h"
 #include "ntt.h"
+#include "reduce.h"
 
 const int16_t zetas[128] = {
   -1044,  -758,  -359, -1517,  1493,  1422,   287,   202,
